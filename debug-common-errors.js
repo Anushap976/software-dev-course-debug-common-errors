@@ -24,23 +24,33 @@ Think about which debugging methods you found most useful and how you might appl
 // Description:
 // This program is intended to display a simple prompt in the console but fails to run.
 
-console.log("Welcome to the bootcamp
+console.log("Welcome to the bootcamp"); 
 
 // What’s Wrong?
-
+//Syntax error missing double quote and closing parenthsis and semi colon
 
 // Program B
 // Description:
 // This code attempts to multiply each number in an array by 2 and display the results. However, it crashes at runtime.
 
-let numbers = [2, 4, "eight"];
+let numbers = [2, 4, 8];
 for (let i = 0; i < numbers.length; i++) {
   let doubled = numbers[i] * 2;
   console.log(doubled);
 }
 
 // What’s Wrong?
-
+//option 1 -numbers array holds an string eight not feasible for performing arthimetic operations and results Not a Number(NaN), so fixed the data in line 36
+//option 2 - use the if condition to ensure only numeric values are multipled and handle non numeric values accordingly as handled in below code.
+numbers = [2, 4, "eight"];
+for (let i = 0; i < numbers.length; i++) {
+  if (typeof numbers[i] === 'number') {  // Check if the element is a number
+    let doubled = numbers[i] * 2;
+    console.log(doubled);
+  } else {
+    console.log(`Invalid number: ${numbers[i]}`);  // Handle non-numeric values
+  }
+}
 
 
 // Program C (Logic Error)
@@ -51,12 +61,15 @@ function isPrime(num) {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return true;  // Supposed to indicate num is NOT prime
+      return false;  // Supposed to indicate num is NOT prime
     }
   }
-  return false; // Supposed to indicate num IS prime
-}
+  return true; // Supposed to indicate num IS prime
+ }
 
-console.log(isPrime(7)); // Expected true but gets false
+ console.log(isPrime(7)); // Expected true but gets false
+ console.log(isPrime(8)); //this should be false
 
 // What’s Wrong?
+//line 53 should return false instead, so indicating that the number is divisible by i and hence not a prime number.
+//above program excutes correctly after fixing it and tested with combination of numbers to test it as well line 61 is validation test.
