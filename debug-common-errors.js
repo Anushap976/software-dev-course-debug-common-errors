@@ -72,4 +72,5 @@ function isPrime(num) {
 
 // What’s Wrong?
 //line 53 should return false instead, so indicating that the number is divisible by i and hence not a prime number.
+//also updated logical condition on line 67 as true accordingly.
 //above program excutes correctly after fixing it and tested with combination of numbers to test it as well line 61 is validation test.
